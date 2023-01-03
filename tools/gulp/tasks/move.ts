@@ -7,6 +7,7 @@ const distFiles = src([
   'packages/**/*',
   '!packages/**/*.ts',
   'packages/**/*.d.ts',
+  'packages/**/*.map',
 ]);
 
 /**

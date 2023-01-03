@@ -1,8 +1,20 @@
-import { Module } from '@nestjs/common';
-import { CatsModule } from './cats/cats.module';
-import { CoreModule } from './core/core.module';
+import { Injectable, Module } from '@nestjs/common';
+// import { CatsModule } from './cats/cats.module';
+// import { CoreModule } from './core/core.module';
+
+@Injectable()
+class TestService {
+  hello() {
+    return 'hello world';
+  }
+}
 
 @Module({
-  imports: [CoreModule, CatsModule],
+  providers: [TestService],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(testService: TestService) {
+    debugger;
+    console.log(testService.hello());
+  }
+}
